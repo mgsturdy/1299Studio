@@ -1,54 +1,68 @@
 (function () {
-  const header = document.querySelector('.header');
-  const menuBtn = document.querySelector('.menu-btn');
-  const nav = document.querySelector('.nav');
+  'use strict';
 
-  // Header background on scroll
-  function onScroll() {
-    if (window.scrollY > 60) {
-      header?.classList.add('scrolled');
+  /* ─── Header scroll state ─── */
+  var header = document.querySelector('.header');
+
+  function checkScroll() {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
     } else {
-      header?.classList.remove('scrolled');
+      header.classList.remove('scrolled');
     }
   }
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  checkScroll();
 
-  // Mobile menu toggle
-  function closeMenu() {
-    nav?.classList.remove('open');
-    menuBtn?.classList.remove('open');
-    document.body.classList.remove('menu-open');
+  /* ─── Mobile nav ─── */
+  var toggle = document.getElementById('menu-toggle');
+  var nav = document.getElementById('nav');
+
+  function closeNav() {
+    nav.classList.remove('open');
+    document.body.classList.remove('nav-open');
   }
 
-  menuBtn?.addEventListener('click', function () {
-    nav?.classList.toggle('open');
-    menuBtn?.classList.toggle('open');
-    document.body.classList.toggle('menu-open', nav?.classList.contains('open'));
+  toggle.addEventListener('click', function () {
+    var isOpen = nav.classList.toggle('open');
+    document.body.classList.toggle('nav-open', isOpen);
   });
 
-  nav?.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', closeMenu);
+  nav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeNav);
   });
 
-  // Scroll-triggered reveal
-  const reveal = document.querySelectorAll(
-    '.section .section-title, .services-block, .work-grid, .partners-list, .contact .contact-text, .contact .contact-email'
+  /* ─── Scroll reveal ─── */
+  var targets = document.querySelectorAll(
+    '.section-intro, .services-card, .services-note, .work-item, .partner-card, .contact-heading, .contact-sub, .contact-email'
   );
-  const observer = new IntersectionObserver(
+
+  targets.forEach(function (el) {
+    el.classList.add('reveal');
+  });
+
+  var observer = new IntersectionObserver(
     function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
+          entry.target.classList.add('visible');
         }
       });
     },
-    { rootMargin: '-8% 0px -8% 0px', threshold: 0 }
+    { rootMargin: '-6% 0px -6% 0px', threshold: 0.05 }
   );
 
-  reveal.forEach(function (el) {
-    el.classList.add('reveal');
-    observer.observe(el);
+  targets.forEach(function (el) { observer.observe(el); });
+
+  /* ─── Stagger partner cards ─── */
+  document.querySelectorAll('.partner-card').forEach(function (card, i) {
+    card.classList.add('reveal-delay-' + (i + 1));
   });
+
+  /* ─── Stagger work items ─── */
+  document.querySelectorAll('.work-item').forEach(function (item, i) {
+    item.style.transitionDelay = (i * 0.06) + 's';
+  });
+
 })();
