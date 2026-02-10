@@ -1,4 +1,4 @@
-# 1299 Studio — static site
+# Studio 1299 — static site
 [build]
   publish = "."
   command = ""

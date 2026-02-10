@@ -1,5 +1,5 @@
 /* ========================================
-   1299 Studio — v2 · Warm editorial
+   Studio 1299 — v2 · Warm editorial
    ======================================== */
 
 :root {
@@ -23,6 +23,19 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
+
+/* Screen-reader only text (SEO + a11y) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 html {
   scroll-behavior: smooth;
@@ -233,6 +246,16 @@ body {
   font-weight: 600;
 }
 
+.hero-detail {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  max-width: 44ch;
+  margin: 0 0 2rem;
+  opacity: 0;
+  animation: rise 0.7s var(--ease) 0.78s forwards;
+}
+
 .hero-actions {
   display: flex;
   gap: 0.75rem;
@@ -385,6 +408,13 @@ body {
   max-width: 580px;
 }
 
+.services-lead {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin: 0 0 1.5rem;
+}
+
 .services-label {
   font-family: var(--sans);
   font-size: 0.7rem;
@@ -398,6 +428,9 @@ body {
 .services-items {
   display: flex;
   flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .service-item {
@@ -429,6 +462,14 @@ body {
   color: var(--ink-soft);
   margin: 0;
   max-width: 40ch;
+}
+
+.section-sub {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  max-width: 50ch;
+  margin: -1.5rem 0 2.5rem;
 }
 
 /* ─── WORK ─── */
@@ -596,6 +637,13 @@ body {
 
 .contact-email:hover {
   border-color: var(--accent);
+}
+
+.contact-location {
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  margin: 1.5rem 0 0;
+  letter-spacing: 0.04em;
 }
 
 /* ─── FOOTER ─── */

@@ -1,6 +1,6 @@
-# 1299 Studio
+# Studio 1299
 
-Landing page for 1299 Studio — *You have the idea (0), you want to execute (100). We do all the work from 1 to 99.*
+Landing page for Studio 1299 — *You have the idea (0), you want to execute (100). We do all the work from 1 to 99.*
 
 ## Run locally
 
@@ -18,7 +18,7 @@ Then visit `http://localhost:8080`.
 
 ## Edit
 
-- **Contact email:** change `hello@1299studio.com` in `index.html` to your real address.
+- **Contact email:** change `hello@studio1299.com` in `index.html` to your real address.
 - **Styles:** `styles.css` — accent color is `--accent: #22e082`.
 - **Content:** all copy and links are in `index.html`.
 

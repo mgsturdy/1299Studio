@@ -27,6 +27,7 @@
   toggle.addEventListener('click', function () {
     var isOpen = nav.classList.toggle('open');
     document.body.classList.toggle('nav-open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
   nav.querySelectorAll('a').forEach(function (link) {
@@ -35,7 +36,7 @@
 
   /* ─── Scroll reveal ─── */
   var targets = document.querySelectorAll(
-    '.section-intro, .services-card, .services-note, .work-item, .partner-card, .contact-heading, .contact-sub, .contact-email'
+    '.section-intro, .section-sub, .services-card, .services-note, .work-item, .partner-card, .contact-heading, .contact-sub, .contact-email'
   );
 
   targets.forEach(function (el) {
