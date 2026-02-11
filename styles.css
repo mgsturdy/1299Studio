@@ -575,6 +575,13 @@ body {
   background: var(--surface);
   padding: 2.5rem 2rem;
   text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s;
+}
+
+.partner-card:hover {
+  background: var(--bg);
 }
 
 .partner-name {
