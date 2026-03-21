@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BENO — Remix Challenge | Submit Your Flip</title>
+  <meta name="description" content="Download BENO's stem pack, post your 20-second flip with #BenoSampleFlip. Weekly winner gets a feature repost." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/beno.css" />
+  <style>
+    .remix-hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .remix-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,75,75,0.15) 0%, transparent 70%),
+                  radial-gradient(ellipse 50% 50% at 80% 80%, rgba(123,94,167,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .stem-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .stem-card:hover {
+      border-color: rgba(232,184,75,0.4);
+      transform: translateX(4px);
+    }
+    .stem-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(232,184,75,0.1);
+      border: 1px solid rgba(232,184,75,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .stem-name { font-size: 0.9rem; font-weight: 700; color: var(--white); }
+    .stem-meta { font-size: 0.75rem; color: var(--gray); margin-top: 2px; }
+    .stem-dl {
+      margin-left: auto;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+    }
+    .dropzone {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 56px 24px;
+      text-align: center;
+      transition: all var(--transition);
+      cursor: pointer;
+      background: rgba(255,255,255,0.01);
+    }
+    .dropzone:hover, .dropzone.active {
+      border-color: var(--gold);
+      background: rgba(232,184,75,0.04);
+    }
+    .dropzone-icon { font-size: 3rem; margin-bottom: 16px; }
+    .dropzone-title { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .dropzone-sub { font-size: 0.85rem; color: var(--gray); }
+    .rule-step {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .rule-step:last-child { border-bottom: none; }
+    .rule-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(232,184,75,0.12);
+      border: 1.5px solid rgba(232,184,75,0.3);
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .rule-title { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .rule-desc { font-size: 0.82rem; color: var(--gray); }
+    .prize-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .prize-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(232,184,75,0.3);
+    }
+    .prize-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+    .prize-card.week::before { background: var(--gold); }
+    .prize-card.month::before { background: var(--purple); }
+    .prize-card.grand::before { background: linear-gradient(90deg, var(--gold), var(--purple)); }
+    .prize-icon { font-size: 2.4rem; margin-bottom: 14px; }
+    .prize-title { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .prize-period { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .remix-lb-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      transition: background var(--transition);
+    }
+    .remix-lb-row:nth-child(odd) { background: rgba(255,255,255,0.02); }
+    .remix-lb-rank {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem; font-weight: 800; flex-shrink: 0;
+    }
+    @media (max-width: 640px) {
+      .stem-card { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="../../index.html" class="nav-logo">BENO <span>×</span> Remix</a>
+    <div class="nav-links" id="nav-links">
+      <a href="../../index.html">Pitch</a>
+      <a href="../../live/index.html">Music</a>
+      <a href="../quest/index.html">Fan Quest</a>
+      <a href="../presave/index.html">Pre-Save</a>
+      <a href="index.html" class="active">Remix</a>
+      <a href="mailto:hello@studio1299.com" class="nav-cta">Book a Call</a>
+    </div>
+    <button id="nav-toggle" style="display:none;background:none;border:1px solid var(--border);color:var(--white);padding:8px 12px;border-radius:var(--radius-sm);cursor:pointer;font-size:0.85rem">Menu</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="remix-hero section">
+  <div class="container text-center" style="position:relative;z-index:2">
+    <span class="tag tag-live" style="margin-bottom:20px">Challenge Open</span>
+    <h1 class="hero-title" style="margin-bottom:20px">
+      The BENO<br><span style="color:#ff7070">Remix Challenge</span>
+    </h1>
+    <p class="lead" style="max-width:520px;margin:0 auto 40px;color:rgba(245,244,240,0.75)">
+      Download the stem pack. Flip it. Post your 20-second cut with <strong style="color:var(--white)">#BenoSampleFlip</strong>. Weekly winner gets a feature repost to BENO's full audience.
+    </p>
+    <div class="flex-center gap-16 fade-in" style="flex-wrap:wrap">
+      <a href="#stems" class="btn btn-primary btn-lg">Download Stems</a>
+      <a href="#submit" class="btn btn-outline btn-lg">Submit Your Remix</a>
+    </div>
+
+    <!-- Stats row -->
+    <div class="grid-3 fade-in" style="max-width:500px;margin:56px auto 0">
+      <div class="stat-card">
+        <div class="stat-number" style="font-size:2rem">347</div>
+        <div class="stat-label">Remixes In</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="font-size:2rem">6</div>
+        <div class="stat-label">Stems Available</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" style="font-size:2rem">Fri</div>
+        <div class="stat-label">Voting Opens</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- HOW IT WORKS -->
+<section class="section" id="rules">
+  <div class="container">
+    <div class="section-label">How It Works</div>
+    <div class="grid-2" style="gap:64px;align-items:start">
+      <div>
+        <h2>Three steps.<br>Your name on the track.</h2>
+        <p class="mt-16">The best remix each week earns a feature repost from BENO's channels. The monthly winner gets a collaborative credit and stem-pack co-release. It's a meritocracy — voters decide.</p>
+        <div class="mt-40 fade-in">
+          <div class="rule-step">
+            <div class="rule-num">01</div>
+            <div>
+              <div class="rule-title">Download the stem pack below</div>
+              <div class="rule-desc">Six stems: vocals, bass, keys, percussion, FX layer, and the full instrumental. WAV format, 44.1kHz, 24-bit.</div>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="rule-num">02</div>
+            <div>
+              <div class="rule-title">Create a 20-second flip</div>
+              <div class="rule-desc">Flip one stem or all six. 20-second minimum. Any genre, any direction — the more surprising, the better. Post to TikTok, Reels, or Twitter/X with <strong style="color:var(--white)">#BenoSampleFlip</strong>.</div>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="rule-num">03</div>
+            <div>
+              <div class="rule-title">Vote opens every Friday</div>
+              <div class="rule-desc">Community voting goes live at noon every Friday on BENO's Instagram Story. Top voted post wins the weekly feature repost.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in" id="stems">
+        <div class="section-label" style="margin-bottom:20px">Stem Pack</div>
+        <div class="flex" style="flex-direction:column;gap:10px">
+          <div class="stem-card">
+            <div class="stem-icon">🎤</div>
+            <div>
+              <div class="stem-name">Lead Vocals</div>
+              <div class="stem-meta">WAV · 24-bit · 44.1kHz</div>
+            </div>
+            <a href="#" class="stem-dl">↓ DL</a>
+          </div>
+          <div class="stem-card">
+            <div class="stem-icon">🎸</div>
+            <div>
+              <div class="stem-name">Bass</div>
+              <div class="stem-meta">WAV · 24-bit · 44.1kHz</div>
+            </div>
+            <a href="#" class="stem-dl">↓ DL</a>
+          </div>
+          <div class="stem-card">
+            <div class="stem-icon">🎹</div>
+            <div>
+              <div class="stem-name">Keys / Synth</div>
+              <div class="stem-meta">WAV · 24-bit · 44.1kHz</div>
+            </div>
+            <a href="#" class="stem-dl">↓ DL</a>
+          </div>
+          <div class="stem-card">
+            <div class="stem-icon">🥁</div>
+            <div>
+              <div class="stem-name">Percussion</div>
+              <div class="stem-meta">WAV · 24-bit · 44.1kHz</div>
+            </div>
+            <a href="#" class="stem-dl">↓ DL</a>
+          </div>
+          <div class="stem-card">
+            <div class="stem-icon">✨</div>
+            <div>
+              <div class="stem-name">FX Layer</div>
+              <div class="stem-meta">WAV · 24-bit · 44.1kHz</div>
+            </div>
+            <a href="#" class="stem-dl">↓ DL</a>
+          </div>
+          <div class="stem-card">
+            <div class="stem-icon">🎵</div>
+            <div>
+              <div class="stem-name">Full Instrumental</div>
+              <div class="stem-meta">WAV · 24-bit · 44.1kHz</div>
+            </div>
+            <a href="#" class="stem-dl">↓ DL</a>
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px">
+          ↓ Download All Stems (.zip)
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PRIZES -->
+<section class="section" id="prizes">
+  <div class="container">
+    <div class="section-label">Prizes</div>
+    <div class="grid-3 fade-in">
+      <div class="prize-card week">
+        <div class="prize-icon">📣</div>
+        <div class="prize-period">Weekly Winner</div>
+        <div class="prize-title">Feature Repost</div>
+        <p style="font-size:0.85rem">BENO reposts your remix to his full audience across TikTok, Instagram, and Twitter. Real reach to real listeners.</p>
+        <div class="mt-16"><span class="tag tag-gold">Every Friday</span></div>
+      </div>
+      <div class="prize-card month">
+        <div class="prize-icon">🎛️</div>
+        <div class="prize-period">Monthly Winner</div>
+        <div class="prize-title">Official Remix Release</div>
+        <p style="font-size:0.85rem">Your remix gets an official release under the BENO name via STEM Distribution. Full streaming credits and royalty share.</p>
+        <div class="mt-16"><span class="tag tag-purple">End of Month</span></div>
+      </div>
+      <div class="prize-card grand">
+        <div class="prize-icon">🏆</div>
+        <div class="prize-period">Grand Prize</div>
+        <div class="prize-title">Collaboration Credit</div>
+        <p style="font-size:0.85rem">Top remix of the campaign earns a co-production credit on BENO's next single. Signed merch package included.</p>
+        <div class="mt-16"><span class="tag tag-dark">Campaign Finale</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- SUBMIT -->
+<section class="section" id="submit">
+  <div class="container">
+    <div class="section-label">Submit Your Remix</div>
+    <div class="grid-2" style="gap:48px;align-items:start">
+      <div>
+        <h2>Drop it here.</h2>
+        <p class="mt-16">Upload your final remix file for consideration. All submissions also need to be posted publicly with <strong style="color:var(--white)">#BenoSampleFlip</strong> for community voting to count.</p>
+        <div class="mt-40 fade-in">
+          <div id="remix-drop" class="dropzone">
+            <div class="dropzone-icon">🎛️</div>
+            <div class="dropzone-title">Drag & drop your remix here</div>
+            <div class="dropzone-sub">MP3 or WAV · Max 50MB · Or click to browse</div>
+          </div>
+          <p style="font-size:0.75rem;color:var(--gray);margin-top:12px">By submitting, you confirm you have rights to all non-BENO elements in your remix. BENO stem usage for this challenge is licensed.</p>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="section-label" style="margin-bottom:20px">This Week's Leaderboard</div>
+        <div class="remix-lb-row">
+          <div class="remix-lb-rank rank-1">1</div>
+          <div class="leaderboard-name" style="font-size:0.88rem">@prodbyflux</div>
+          <div class="leaderboard-xp" style="font-size:0.82rem">1.2k votes</div>
+        </div>
+        <div class="remix-lb-row">
+          <div class="remix-lb-rank rank-2">2</div>
+          <div class="leaderboard-name" style="font-size:0.88rem">@noirflips</div>
+          <div class="leaderboard-xp" style="font-size:0.82rem">940 votes</div>
+        </div>
+        <div class="remix-lb-row">
+          <div class="remix-lb-rank rank-3">3</div>
+          <div class="leaderboard-name" style="font-size:0.88rem">@bassline.wav</div>
+          <div class="leaderboard-xp" style="font-size:0.82rem">780 votes</div>
+        </div>
+        <div class="remix-lb-row">
+          <div class="remix-lb-rank rank-default">4</div>
+          <div class="leaderboard-name" style="font-size:0.88rem">@ctybeats</div>
+          <div class="leaderboard-xp" style="font-size:0.82rem">521 votes</div>
+        </div>
+        <div class="remix-lb-row">
+          <div class="remix-lb-rank rank-default">5</div>
+          <div class="leaderboard-name" style="font-size:0.88rem">@urban.layers</div>
+          <div class="leaderboard-xp" style="font-size:0.82rem">410 votes</div>
+        </div>
+        <div class="remix-lb-row">
+          <div class="remix-lb-rank rank-default">—</div>
+          <div class="leaderboard-name" style="font-size:0.88rem">you_next?</div>
+          <div class="leaderboard-xp" style="font-size:0.82rem">0 votes</div>
+        </div>
+        <div class="mt-24">
+          <p style="font-size:0.82rem;color:var(--gray)">Leaderboard resets every Friday at noon. Voting happens via BENO's Instagram Story poll.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CTA -->
+<section class="section">
+  <div class="container text-center fade-in" style="max-width:520px;margin:0 auto">
+    <h2>Your remix could reach thousands.</h2>
+    <p class="mt-16">Every week is a new shot. Download the stems, flip something unique, and let the community decide. The best artists in this challenge will be heard.</p>
+    <div class="flex-center gap-16 mt-40" style="flex-wrap:wrap">
+      <a href="../quest/index.html" class="btn btn-outline btn-lg">Fan Quest (+250 XP)</a>
+      <a href="../presave/index.html" class="btn btn-ghost btn-lg">Pre-Save Album</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <span class="footer-copy">&copy; <span id="year"></span> BENO &middot; Boom Records &middot; Distributed by STEM &middot; Powered by <a href="https://studio1299.com">Studio 1299</a></span>
+    <div class="flex gap-24">
+      <a href="../../index.html" style="font-size:0.78rem;color:var(--gray)">Pitch Deck</a>
+      <a href="../../live/index.html" style="font-size:0.78rem;color:var(--gray)">Music</a>
+      <a href="../presave/index.html" style="font-size:0.78rem;color:var(--gray)">Pre-Save</a>
+      <a href="../quest/index.html" style="font-size:0.78rem;color:var(--gray)">Fan Quest</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/beno.js"></script>
+<script>const y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();</script>
+</body>
+</html>

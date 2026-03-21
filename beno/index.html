@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BENO × Boom Records — Pitch Deck | Studio 1299</title>
+  <meta name="description" content="A rapid launch stack for Boom Records: content, rollout, microsites, and growth loops built in hours, not weeks." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/beno.css" />
+  <style>
+    /* Pitch-specific overrides */
+    .pitch-hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      padding-top: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pitch-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 70% 40%, rgba(123,94,167,0.18) 0%, transparent 70%),
+                  radial-gradient(ellipse 50% 50% at 10% 80%, rgba(232,184,75,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .pitch-hero-left { position: relative; z-index: 2; }
+    .pitch-hero-right { position: relative; z-index: 2; }
+    .partner-strip {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding: 28px 0;
+    }
+    .partner-strip-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray);
+      white-space: nowrap;
+    }
+    .partner-strip-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--border);
+    }
+    .microsite-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color var(--transition), transform var(--transition);
+      text-decoration: none;
+      display: block;
+    }
+    .microsite-card:hover {
+      border-color: rgba(232,184,75,0.4);
+      transform: translateY(-4px);
+      opacity: 1;
+    }
+    .microsite-card-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+    .microsite-card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .microsite-card-desc {
+      font-size: 0.82rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    .rollout-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .rollout-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+    .rollout-table td:first-child {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      width: 80px;
+    }
+    .rollout-table td:last-child { color: var(--gray); }
+    .rollout-table tr:last-child td { border-bottom: none; }
+    .pitch-quote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 24px;
+      background: rgba(232,184,75,0.05);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .pitch-quote p { color: var(--white); font-style: italic; font-size: 1.05rem; }
+    .pitch-quote cite { font-size: 0.78rem; color: var(--gray); margin-top: 10px; display: block; }
+    @media (max-width: 900px) {
+      .pitch-hero { grid-template-columns: 1fr; min-height: auto; padding-top: 120px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="./index.html" class="nav-logo">BENO <span>×</span> Pitch</a>
+    <div class="nav-links" id="nav-links">
+      <a href="./index.html" class="active">Pitch</a>
+      <a href="./live/index.html">Music</a>
+      <a href="./microsites/quest/index.html">Fan Quest</a>
+      <a href="./microsites/presave/index.html">Pre-Save</a>
+      <a href="./microsites/remix/index.html">Remix</a>
+      <a href="mailto:hello@studio1299.com" class="nav-cta">Book a Call</a>
+    </div>
+    <button id="nav-toggle" style="display:none;background:none;border:1px solid var(--border);color:var(--white);padding:8px 12px;border-radius:var(--radius-sm);cursor:pointer;font-size:0.85rem">Menu</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="pitch-hero section">
+  <div class="pitch-hero-left">
+    <div class="hero-eyebrow">Studio 1299 × Boom Records</div>
+    <h1 class="hero-title">
+      The <span class="accent">BENO</span><br>Single Launch<br>System
+    </h1>
+    <p class="lead hero-subtitle">
+      A full creative and distribution stack built for momentum — content, rollout architecture, microsites, and growth loops deployed in hours, not weeks.
+    </p>
+    <div class="flex gap-16" style="flex-wrap:wrap">
+      <a href="./live/index.html" class="btn btn-primary btn-lg">Open Live Site</a>
+      <a href="mailto:hello@studio1299.com" class="btn btn-outline btn-lg">Book a Call</a>
+    </div>
+    <div class="partner-strip mt-40 fade-in">
+      <span class="partner-strip-label">Powered by</span>
+      <div class="partner-strip-divider"></div>
+      <a href="https://sturdy.co" target="_blank" rel="noopener" class="partner-logo">Sturdy</a>
+      <div class="partner-strip-divider"></div>
+      <span class="partner-logo">STEM Distribution</span>
+      <div class="partner-strip-divider"></div>
+      <span class="partner-logo">Boom Records</span>
+      <div class="partner-strip-divider"></div>
+      <span class="partner-logo">Tyler Henry Network</span>
+    </div>
+  </div>
+  <div class="pitch-hero-right fade-in">
+    <div class="video-wrap">
+      <video controls autoplay muted loop playsinline src="./assets/beno-teaser-5s.mp4"></video>
+    </div>
+    <p style="font-size:0.8rem;color:var(--gray);margin-top:12px;text-align:center">5-second teaser concept for paid/social boost</p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- STATS -->
+<section class="section-sm">
+  <div class="container">
+    <div class="grid-4 fade-in">
+      <div class="stat-card">
+        <div class="stat-number">14</div>
+        <div class="stat-label">Day Rollout</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Art Directions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Growth Microsites</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Coherent Launch</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- WHY -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="section-label">The Opportunity</div>
+    <div class="grid-2" style="gap:64px;align-items:start">
+      <div>
+        <h2>Why Beno should launch with Boom + the Tyler Henry network</h2>
+        <p class="mt-16">BENO has the sound, the arc, and the moment. What closes the gap between debut and momentum is infrastructure — creative throughput, distribution velocity, and fan activation systems that compound.</p>
+        <p class="mt-16">This is exactly what the Boom Records × Studio 1299 × Sturdy stack delivers.</p>
+        <div class="pitch-quote mt-40">
+          <p>"The window for a debut to break out isn't luck — it's execution density in the first 14 days."</p>
+          <cite>— Studio 1299 Launch Playbook</cite>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="card card-gold" style="margin-bottom:20px">
+          <h4>Distribution Velocity</h4>
+          <p class="mt-8">Tyler Henry's industry network + STEM Distribution's infrastructure turns a single into a synchronized rollout: playlist outreach, DSP pitching, creator seeding, and paid microbursts firing in sequence.</p>
+        </div>
+        <div class="card card-purple" style="margin-bottom:20px">
+          <h4>Creative Throughput</h4>
+          <p class="mt-8">3 artwork directions, teaser clips, and microsites built fast — via Sturdy's creative pipeline — so the campaign adapts in real time to wherever traction is building.</p>
+        </div>
+        <div class="card">
+          <h4>Measurable Fan Growth</h4>
+          <p class="mt-8">Each microsite captures intent: pre-saves, fan quest completions, remix UGC. Clear conversion events map directly to Spotify listener growth and algorithm signals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- MICROSITES -->
+<section class="section" id="microsites">
+  <div class="container">
+    <div class="section-label">The Microsite Stack</div>
+    <div class="grid-2" style="gap:48px;align-items:start;margin-bottom:48px">
+      <div>
+        <h2>Three activation surfaces. One coherent campaign.</h2>
+        <p class="mt-16">Each microsite drives a specific fan behavior. Together they form a flywheel — streaming, social proof, and UGC feeding Spotify's algorithm and BENO's audience compounding.</p>
+      </div>
+      <div class="flex-center">
+        <a href="./live/index.html" class="btn btn-outline btn-lg">See Live Demo →</a>
+      </div>
+    </div>
+    <div class="grid-3 fade-in">
+      <a href="./microsites/presave/index.html" class="microsite-card">
+        <div class="microsite-card-icon">💿</div>
+        <div class="microsite-card-title">Pre-Save Vault</div>
+        <div class="microsite-card-desc">Spotify pre-save + email capture with gamified spin-to-win unlock. Converts passive interest into committed listeners before release day.</div>
+        <div class="mt-16"><span class="tag tag-gold">Pre-Save</span></div>
+      </a>
+      <a href="./microsites/quest/index.html" class="microsite-card">
+        <div class="microsite-card-icon">🎯</div>
+        <div class="microsite-card-title">Fan Quest</div>
+        <div class="microsite-card-desc">XP-based mission system: stream, follow, share, create fan art. Leaderboard-driven community building that creates organic word-of-mouth.</div>
+        <div class="mt-16"><span class="tag tag-purple">Gamified</span></div>
+      </a>
+      <a href="./microsites/remix/index.html" class="microsite-card">
+        <div class="microsite-card-icon">🎛️</div>
+        <div class="microsite-card-title">Remix Challenge</div>
+        <div class="microsite-card-desc">Stem pack download + UGC submission engine. Weekly winner gets a feature repost. Turns listeners into creators and amplifies reach exponentially.</div>
+        <div class="mt-16"><span class="tag tag-dark">UGC Engine</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ALBUM ART -->
+<section class="section" id="art">
+  <div class="container">
+    <div class="section-label">Artwork Concepts</div>
+    <div class="grid-2" style="gap:48px;align-items:start;margin-bottom:40px">
+      <div>
+        <h2>Three directions. One release.</h2>
+        <p class="mt-16">Three visual identities ready for A/B testing across paid channels. The campaign runs all three and doubles down on whichever earns the highest click-through rate in the first 48 hours.</p>
+      </div>
+    </div>
+    <div class="album-grid fade-in">
+      <div class="album-card">
+        <img src="./assets/beno-cover-1.png" alt="BENO Concept A — Neon Noir" />
+        <div class="album-card-label">Concept A: Neon Noir</div>
+      </div>
+      <div class="album-card">
+        <img src="./assets/beno-cover-2.png" alt="BENO Concept B — Minimal Luxury" />
+        <div class="album-card-label">Concept B: Minimal Luxury</div>
+      </div>
+      <div class="album-card">
+        <img src="./assets/beno-cover-3.png" alt="BENO Concept C — Streetwave Kinetic" />
+        <div class="album-card-label">Concept C: Streetwave Kinetic</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ROLLOUT PLAN -->
+<section class="section" id="rollout">
+  <div class="container">
+    <div class="section-label">14-Day Rollout Plan</div>
+    <div class="grid-2" style="gap:48px;align-items:start">
+      <div>
+        <h2>Every day has a job to do.</h2>
+        <p class="mt-16">A pre-built execution calendar synchronized across organic content, paid amplification, playlist outreach, and fan activation — all deploying from the same creative assets.</p>
+        <div class="mt-40">
+          <div class="timeline fade-in">
+            <div class="timeline-item">
+              <div class="timeline-month">D−14</div>
+              <div class="timeline-title">Teaser + Mystery Visual Drop</div>
+              <div class="timeline-desc">3-second visual hook across TikTok, Reels, Stories. No title, no context — just audio and image identity.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-month">D−10</div>
+              <div class="timeline-title">Artist Story + Behind-the-Track</div>
+              <div class="timeline-desc">Short-form BTS content, BENO's voice on the record. Creator brief released to seeding partners via Sturdy.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-month">D−7</div>
+              <div class="timeline-title">Pre-Save Vault Goes Live</div>
+              <div class="timeline-desc">STEM pre-save link activated. Microsite live. Paid traffic starts split-testing art directions.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-month">D−4</div>
+              <div class="timeline-title">Paid Burst + Fan Quest Launch</div>
+              <div class="timeline-desc">Doubling budget on top-performing art direction. Fan Quest missions unlock. Tyler network push to editorial contacts.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-month">D−2</div>
+              <div class="timeline-title">Press + Playlist Outreach</div>
+              <div class="timeline-desc">Editorial pitches to independent blogs and Spotify playlist curators. Press release out through Tyler's media contacts.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="card" style="margin-bottom:20px">
+          <h4>Launch Day (D0)</h4>
+          <table class="rollout-table" style="margin-top:12px">
+            <tr><td>9 AM</td><td>Release goes live across all DSPs via STEM</td></tr>
+            <tr><td>10 AM</td><td>Launch blast: Reels, Shorts, Stories simultaneous drop</td></tr>
+            <tr><td>12 PM</td><td>Email drop to pre-save list with unlock bonus</td></tr>
+            <tr><td>3 PM</td><td>Paid retargeting activates on pre-save non-converters</td></tr>
+            <tr><td>EOD</td><td>Leaderboard seeded, remix stems available for download</td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <h4>Post-Launch Week (D+1 to D+7)</h4>
+          <table class="rollout-table" style="margin-top:12px">
+            <tr><td>D+1</td><td>Remix Challenge opens — stems downloadable</td></tr>
+            <tr><td>D+3</td><td>Fan leaderboard first update, top fans spotlighted</td></tr>
+            <tr><td>D+5</td><td>Retargeting pivot to engagement audiences</td></tr>
+            <tr><td>D+7</td><td>First remix winner announced, cycle repeats</td></tr>
+          </table>
+        </div>
+        <div class="card mt-16">
+          <h4>Content Volume</h4>
+          <table class="rollout-table" style="margin-top:12px">
+            <tr><td>3×</td><td>Hero posts across primary channels</td></tr>
+            <tr><td>8×</td><td>Short-form clips (15s–60s)</td></tr>
+            <tr><td>2×</td><td>BTS documentary cuts</td></tr>
+            <tr><td>2×</td><td>Email drops (pre-launch + day-of)</td></tr>
+            <tr><td>Daily</td><td>Story frames with CTA into pre-save + quest</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PARTNERS -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">The Team Behind This</div>
+    <div class="grid-3 fade-in">
+      <div class="card card-gold">
+        <h4>Tyler Henry</h4>
+        <p class="mt-8">Industry veteran and MUSExpo-recognized music professional. Tyler's network connects BENO to editorial, sync, and tastemaker channels that independent artists rarely access at launch.</p>
+      </div>
+      <div class="card card-purple">
+        <h4>Sturdy</h4>
+        <p class="mt-8">Creative and growth infrastructure partner at <a href="https://sturdy.co" target="_blank" rel="noopener">sturdy.co</a>. Handles the creative pipeline velocity — assets, copy, and deployment that keeps the campaign responsive to real-time data.</p>
+      </div>
+      <div class="card">
+        <h4>STEM Distribution</h4>
+        <p class="mt-8">Artist-first distribution platform handling delivery to all major DSPs, pre-save link activation, and revenue transparency. STEM ensures the release infrastructure is clean from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CTA -->
+<section class="section">
+  <div class="container text-center fade-in" style="max-width:600px;margin:0 auto">
+    <h4>Studio 1299 × Boom Records</h4>
+    <h2 style="margin-top:12px">Ready to deploy this for BENO?</h2>
+    <p class="mt-16">Every asset, microsite, and rollout trigger is already built. This demo runs on the same stack that ships to production. The only variable is go/no-go.</p>
+    <div class="flex-center gap-16 mt-40" style="flex-wrap:wrap">
+      <a href="mailto:hello@studio1299.com" class="btn btn-primary btn-lg">Book a Call</a>
+      <a href="./live/index.html" class="btn btn-outline btn-lg">See Live Demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <span class="footer-copy">&copy; <span id="year"></span> BENO &middot; Boom Records &middot; Powered by <a href="https://studio1299.com">Studio 1299</a></span>
+    <div class="flex gap-24">
+      <a href="./live/index.html" style="font-size:0.78rem;color:var(--gray)">Music</a>
+      <a href="./microsites/presave/index.html" style="font-size:0.78rem;color:var(--gray)">Pre-Save</a>
+      <a href="./microsites/quest/index.html" style="font-size:0.78rem;color:var(--gray)">Fan Quest</a>
+      <a href="./microsites/remix/index.html" style="font-size:0.78rem;color:var(--gray)">Remix</a>
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/beno.js"></script>
+<script>const y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();</script>
+</body>
+</html>

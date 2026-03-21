@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BENO — Noir City | New Single Out Now</title>
+  <meta name="description" content="BENO's debut single Noir City is out now on all platforms. Pre-save, join the fan quest, or submit a remix." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/beno.css" />
+  <style>
+    .live-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .live-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 50% 20%, rgba(123,94,167,0.2) 0%, transparent 65%),
+                  radial-gradient(ellipse 60% 50% at 80% 70%, rgba(232,184,75,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .live-hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .covers-stack {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .covers-stack .album-card:first-child {
+      grid-column: 1 / -1;
+    }
+    .stream-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border-radius: var(--radius-sm);
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+    .stream-btn:hover {
+      border-color: var(--gold);
+      transform: translateX(4px);
+      opacity: 1;
+    }
+    .stream-btn-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .stream-btn-icon.spotify { background: #1DB954; }
+    .stream-btn-icon.apple { background: #fc3c44; }
+    .stream-btn-icon.youtube { background: #ff0000; }
+    .stream-btn-label { flex: 1; }
+    .stream-btn-sub { font-size: 0.72rem; color: var(--gray); font-weight: 400; }
+    .activate-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .activate-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .activate-card:hover {
+      border-color: rgba(232,184,75,0.4);
+      transform: translateY(-6px);
+      opacity: 1;
+    }
+    .activate-card-icon { font-size: 2.4rem; margin-bottom: 14px; }
+    .activate-card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .activate-card-desc { font-size: 0.82rem; color: var(--gray); }
+    @media (max-width: 900px) {
+      .live-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .activate-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .covers-stack { grid-template-columns: 1fr; }
+      .covers-stack .album-card:first-child { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo">BENO</a>
+    <div class="nav-links" id="nav-links">
+      <a href="../index.html">Pitch</a>
+      <a href="index.html" class="active">Music</a>
+      <a href="../microsites/quest/index.html">Fan Quest</a>
+      <a href="../microsites/presave/index.html">Pre-Save</a>
+      <a href="../microsites/remix/index.html">Remix</a>
+      <a href="mailto:hello@studio1299.com" class="nav-cta">Book a Call</a>
+    </div>
+    <button id="nav-toggle" style="display:none;background:none;border:1px solid var(--border);color:var(--white);padding:8px 12px;border-radius:var(--radius-sm);cursor:pointer;font-size:0.85rem">Menu</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="live-hero section">
+  <div class="container">
+    <div class="live-hero-inner">
+      <div>
+        <div class="flex gap-8" style="margin-bottom:24px;flex-wrap:wrap">
+          <span class="tag tag-live">Out Now</span>
+          <span class="tag tag-gold">Debut Single</span>
+        </div>
+        <h1 class="hero-title" style="margin-bottom:20px">
+          <span class="accent">BENO</span><br>Noir City
+        </h1>
+        <p class="lead" style="max-width:460px;margin-bottom:40px">
+          The debut single is out on all platforms. Dark, atmospheric, and built for replay. Stream it everywhere, then go deeper.
+        </p>
+
+        <!-- Waveform -->
+        <div class="flex gap-16 fade-in" style="align-items:center;margin-bottom:40px">
+          <div class="waveform">
+            <div class="waveform-bar" style="height:12px"></div>
+            <div class="waveform-bar" style="height:24px"></div>
+            <div class="waveform-bar" style="height:32px"></div>
+            <div class="waveform-bar" style="height:20px"></div>
+            <div class="waveform-bar" style="height:36px"></div>
+            <div class="waveform-bar" style="height:16px"></div>
+            <div class="waveform-bar" style="height:28px"></div>
+            <div class="waveform-bar" style="height:22px"></div>
+          </div>
+          <span style="font-size:0.82rem;color:var(--gray);font-weight:600">Playing Now</span>
+        </div>
+
+        <!-- Stream links -->
+        <div class="flex" style="flex-direction:column;gap:10px;max-width:340px">
+          <a href="https://open.spotify.com" target="_blank" rel="noopener" class="stream-btn">
+            <div class="stream-btn-icon spotify">🎵</div>
+            <div class="stream-btn-label">
+              <div>Spotify</div>
+              <div class="stream-btn-sub">Stream on Spotify</div>
+            </div>
+            <span style="color:var(--gray);font-size:0.8rem">→</span>
+          </a>
+          <a href="https://music.apple.com" target="_blank" rel="noopener" class="stream-btn">
+            <div class="stream-btn-icon apple">🎵</div>
+            <div class="stream-btn-label">
+              <div>Apple Music</div>
+              <div class="stream-btn-sub">Stream on Apple Music</div>
+            </div>
+            <span style="color:var(--gray);font-size:0.8rem">→</span>
+          </a>
+          <a href="https://youtube.com" target="_blank" rel="noopener" class="stream-btn">
+            <div class="stream-btn-icon youtube">▶</div>
+            <div class="stream-btn-label">
+              <div>YouTube Music</div>
+              <div class="stream-btn-sub">Watch on YouTube</div>
+            </div>
+            <span style="color:var(--gray);font-size:0.8rem">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="covers-stack fade-in">
+        <div class="album-card">
+          <img src="../assets/beno-cover-1.png" alt="BENO — Noir City Cover Art" />
+          <div class="album-card-label">Noir City</div>
+        </div>
+        <div class="album-card">
+          <img src="../assets/beno-cover-2.png" alt="BENO — Minimal Luxury" />
+        </div>
+        <div class="album-card">
+          <img src="../assets/beno-cover-3.png" alt="BENO — Streetwave" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- TEASER VIDEO -->
+<section class="section-sm">
+  <div class="container">
+    <div style="max-width:700px;margin:0 auto">
+      <div class="section-label">Visual</div>
+      <div class="video-wrap fade-in">
+        <video controls playsinline src="../assets/beno-teaser-5s.mp4" style="width:100%"></video>
+      </div>
+      <p style="font-size:0.82rem;color:var(--gray);margin-top:12px;text-align:center">Official teaser — Noir City</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- FAN ACTIVATION -->
+<section class="section" id="join">
+  <div class="container">
+    <div class="section-label">Join the Campaign</div>
+    <div class="grid-2" style="gap:48px;align-items:start;margin-bottom:40px">
+      <div>
+        <h2>Don't just listen.<br>Be part of it.</h2>
+      </div>
+      <div>
+        <p>The BENO launch is built as a participatory campaign — every fan action feeds the machine. Pre-save for early access, complete missions for XP and rewards, or remix the stems to win a feature.</p>
+      </div>
+    </div>
+    <div class="activate-grid fade-in">
+      <a href="../microsites/presave/index.html" class="activate-card">
+        <div class="activate-card-icon">💿</div>
+        <div class="activate-card-title">Pre-Save the Album</div>
+        <div class="activate-card-desc">Lock in your spot. Pre-savers get early access and a spin-to-win unlock on release day.</div>
+        <div class="mt-16"><span class="tag tag-gold">Pre-Save Now</span></div>
+      </a>
+      <a href="../microsites/quest/index.html" class="activate-card">
+        <div class="activate-card-icon">🎯</div>
+        <div class="activate-card-title">Fan Quest</div>
+        <div class="activate-card-desc">Complete missions, earn XP, and unlock exclusive tracks, visuals, and merch before anyone else.</div>
+        <div class="mt-16"><span class="tag tag-purple">Start Playing</span></div>
+      </a>
+      <a href="../microsites/remix/index.html" class="activate-card">
+        <div class="activate-card-icon">🎛️</div>
+        <div class="activate-card-title">Remix Challenge</div>
+        <div class="activate-card-desc">Download the stem pack. Post your 20-second flip with #BenoSampleFlip. Weekly winner gets a repost.</div>
+        <div class="mt-16"><span class="tag tag-dark">Get Stems</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ABOUT -->
+<section class="section">
+  <div class="container">
+    <div class="grid-2" style="gap:64px;align-items:center">
+      <div class="fade-in">
+        <div class="album-card" style="max-width:400px">
+          <img src="../assets/beno-cover-1.png" alt="BENO" />
+        </div>
+      </div>
+      <div>
+        <div class="section-label">About</div>
+        <h2>BENO</h2>
+        <p class="mt-16">Emerging from a rare intersection of atmosphere and structure, BENO builds tracks that feel cinematic in headphones and anthemic in a room. Noir City marks his formal introduction — a debut built for streaming algorithms and human emotion simultaneously.</p>
+        <p class="mt-16">Distributed via STEM and backed by Boom Records, this launch is designed to be the first chapter of a long arc, not a one-off moment.</p>
+        <div class="flex gap-16 mt-40" style="flex-wrap:wrap">
+          <a href="../microsites/presave/index.html" class="btn btn-primary">Pre-Save Now</a>
+          <a href="../index.html" class="btn btn-outline">View Pitch Deck</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <span class="footer-copy">&copy; <span id="year"></span> BENO &middot; Boom Records &middot; Distributed by STEM &middot; Powered by <a href="https://studio1299.com">Studio 1299</a></span>
+    <div class="flex gap-24">
+      <a href="../microsites/presave/index.html" style="font-size:0.78rem;color:var(--gray)">Pre-Save</a>
+      <a href="../microsites/quest/index.html" style="font-size:0.78rem;color:var(--gray)">Fan Quest</a>
+      <a href="../microsites/remix/index.html" style="font-size:0.78rem;color:var(--gray)">Remix</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/beno.js"></script>
+<script>const y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();</script>
+</body>
+</html>
