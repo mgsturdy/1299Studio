@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team | Studio 1299</title>
+  <meta name="description" content="Meet the humans and agents behind Studio 1299. Engineers, designers, and AI agents working together." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://studio1299.com/team" />
+  <meta name="theme-color" content="#D94F1E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ─── TEAM PAGE ─── */
+    .team-hero {
+      padding: 10rem 5vw 4rem;
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+
+    .team-hero .hero-eyebrow {
+      animation: none;
+      opacity: 1;
+    }
+
+    .team-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 400;
+      color: var(--ink);
+      margin: 0.5rem 0 1rem;
+      line-height: 1.1;
+    }
+
+    .team-hero p {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      max-width: 44ch;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ─── TEAM GRID ─── */
+    .team-section {
+      padding: 5rem 0;
+    }
+
+    .team-section + .team-section {
+      border-top: 1px solid var(--border);
+    }
+
+    .team-section.agents-section {
+      background: var(--bg-alt);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .team-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .team-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      margin: 0 auto 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      line-height: 1;
+      background: var(--surface);
+      border: 2px solid var(--border);
+    }
+
+    .team-avatar.accent-border {
+      border-color: var(--accent);
+    }
+
+    .team-name {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin: 0 0 0.3rem;
+    }
+
+    .team-role {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.5rem;
+    }
+
+    .team-desc {
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      margin: 0;
+      max-width: 28ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Agent hierarchy */
+    .agent-lead {
+      grid-column: 1 / -1;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .agent-lead .team-avatar {
+      width: 112px;
+      height: 112px;
+      font-size: 3rem;
+      border-width: 3px;
+      border-color: var(--accent);
+    }
+
+    .agent-lead .team-name {
+      font-size: 1.4rem;
+    }
+
+    .agent-divider {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem 0;
+    }
+
+    .agent-divider span {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      white-space: nowrap;
+    }
+
+    .agent-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .agent-lead {
+        grid-column: 1 / -1;
+      }
+      .agent-divider {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" role="banner">
+    <a href="/" class="logo" aria-label="Studio 1299, Home">Studio<span>1299</span></a>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="/#services">Services</a>
+      <a href="/team">Team</a>
+      <a href="/#partners">Partners</a>
+      <a href="/#contact" class="nav-cta">Let's talk</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line class="bar bar-1" x1="3" y1="6" x2="21" y2="6"/>
+        <line class="bar bar-2" x1="3" y1="12" x2="21" y2="12"/>
+        <line class="bar bar-3" x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </header>
+
+  <main>
+
+    <div class="team-hero">
+      <p class="hero-eyebrow">The Team</p>
+      <h1>Humans & agents,<br/>working together</h1>
+      <p>A small team of people backed by a full roster of AI agents. Every project gets the attention of both.</p>
+    </div>
+
+    <!-- HUMANS -->
+    <section class="team-section">
+      <div class="container">
+        <div class="section-intro">
+          <span class="section-num" aria-hidden="true">01</span>
+          <h2 class="section-heading">Humans</h2>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar">&#x1F9D4;</div>
+            <h3 class="team-name">Matt</h3>
+            <p class="team-role">Partner</p>
+            <p class="team-desc">Strategy, architecture, and the person who signs off on everything.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">&#x1F468;&#x200D;&#x1F4BB;</div>
+            <h3 class="team-name">Steve</h3>
+            <p class="team-role">Partner</p>
+            <p class="team-desc">Business development and client relationships.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">&#x1F527;</div>
+            <h3 class="team-name">Braeden</h3>
+            <p class="team-role">Engineer</p>
+            <p class="team-desc">Full stack builds, infrastructure, and making things work.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">&#x2699;&#xFE0F;</div>
+            <h3 class="team-name">Chris</h3>
+            <p class="team-role">Engineer</p>
+            <p class="team-desc">Backend systems, APIs, and reliable plumbing.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">&#x1F91D;</div>
+            <h3 class="team-name">Montana</h3>
+            <p class="team-role">Director of Customer Care</p>
+            <p class="team-desc">Client success, onboarding, and making sure nothing falls through the cracks.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">&#x1F4C8;</div>
+            <h3 class="team-name">Sara</h3>
+            <p class="team-role">Director of Sales, Eastern Canada</p>
+            <p class="team-desc">Growing the Eastern Canadian portfolio and building lasting partnerships.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AGENTS -->
+    <section class="team-section agents-section">
+      <div class="container">
+        <div class="section-intro">
+          <span class="section-num" aria-hidden="true">02</span>
+          <h2 class="section-heading">Agents</h2>
+        </div>
+
+        <div class="team-grid">
+
+          <!-- Jessica - Lead -->
+          <div class="team-card agent-lead">
+            <div class="team-avatar accent-border">&#x1F451;</div>
+            <h3 class="team-name">Jessica</h3>
+            <p class="team-role">Chief of Staff</p>
+            <p class="team-desc">The front door. Routes all requests, coordinates the agent team, and keeps everything running.</p>
+          </div>
+
+          <div class="agent-divider"><span>Engineering</span></div>
+
+          <div class="team-card">
+            <div class="team-avatar">&#x1F5A5;&#xFE0F;</div>
+            <h3 class="team-name">Ralph</h3>
+            <p class="team-role">Frontend Engineer</p>
+            <p class="team-desc">Creative but pragmatic. Ships fast, hates unnecessary complexity.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">&#x1F4E6;</div>
+            <h3 class="team-name">Clarence</h3>
+            <p class="team-role">Backend Engineer</p>
+            <p class="team-desc">Methodical and opinionated. Tests before code, simple over clever.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">&#x1F6E1;&#xFE0F;</div>
+            <h3 class="team-name">Carter</h3>
+            <p class="team-role">DevOps Engineer</p>
+            <p class="team-desc">Cautious, security-minded, automation-obsessed. No yolo deploys.</p>
+          </div>
+
+          <div class="agent-divider"><span>Design & Creative</span></div>
+
+          <div class="team-card">
+            <div class="team-avatar">&#x1F3A8;</div>
+            <h3 class="team-name">Sally</h3>
+            <p class="team-role">UI/UX Designer</p>
+            <p class="team-desc">Funky perfectionist. Lives at the intersection of bold vision and pixel-level precision.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">&#x1F4E3;</div>
+            <h3 class="team-name">Felicity</h3>
+            <p class="team-role">Marketing Director</p>
+            <p class="team-desc">Creative and data-informed. Thinks in funnels and narratives.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">&#x1F3B5;</div>
+            <h3 class="team-name">Gary</h3>
+            <p class="team-role">Music Curator</p>
+            <p class="team-desc">Deep knowledge across genres. Curates for moods, moments, and meaning.</p>
+          </div>
+
+          <div class="agent-divider"><span>Operations</span></div>
+
+          <div class="team-card">
+            <div class="team-avatar">&#x1F4CB;</div>
+            <h3 class="team-name">Maya</h3>
+            <p class="team-role">Project Manager</p>
+            <p class="team-desc">Organized and deadline-aware. Tracks milestones and flags blockers early.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">&#x1F4BC;</div>
+            <h3 class="team-name">Callie</h3>
+            <p class="team-role">Sales</p>
+            <p class="team-desc">Relationship-first. Tracks every touchpoint and never lets a lead go cold.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">&#x1F4C5;</div>
+            <h3 class="team-name">Rachael</h3>
+            <p class="team-role">Personal Assistant</p>
+            <p class="team-desc">Warm, anticipatory. Reminds, prepares, and remembers everything.</p>
+          </div>
+
+          <div class="agent-divider"><span>Specialists</span></div>
+
+          <div class="team-card">
+            <div class="team-avatar">&#x1F4B0;</div>
+            <h3 class="team-name">Derek</h3>
+            <p class="team-role">Finance</p>
+            <p class="team-desc">Numbers-first. Leads with data, flags risks early, hates surprises.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">&#x1F50F;</div>
+            <h3 class="team-name">Roger</h3>
+            <p class="team-role">Security</p>
+            <p class="team-desc">Vigilant, zero-trust mindset. Never cuts corners on security.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">&#x1F9FE;</div>
+            <h3 class="team-name">Millhouse</h3>
+            <p class="team-role">Tax Planner</p>
+            <p class="team-desc">Conservative and detail-oriented. Tracks filing dates months in advance.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">&#x1F96C;</div>
+            <h3 class="team-name">Claire</h3>
+            <p class="team-role">Wellness</p>
+            <p class="team-desc">Encouraging but not preachy. Celebrates consistency over perfection.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">&#x1F468;&#x200D;&#x1F373;</div>
+            <h3 class="team-name">Pascal</h3>
+            <p class="team-role">Chef</p>
+            <p class="team-desc">Passionate and practical. Balances nutrition with convenience.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <span class="footer-mark">&copy; 2026 Studio 1299 &middot; Vancouver, BC</span>
+      <span class="footer-line">A SmartEntry Holdings Company</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
